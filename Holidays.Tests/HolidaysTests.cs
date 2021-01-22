@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Xunit;
 
 namespace Szyb.Holidays.Tests
@@ -10,12 +11,12 @@ namespace Szyb.Holidays.Tests
         {
             var list = Core.Holidays.GetPolishHolidays(2019);
 
-            Assert.Equal(13, list.Count);
+            Assert.Equal(13, list.Count());
             DateTime previousDay = DateTime.MinValue;
-            foreach (var (date, name) in list)
+            foreach (var holiday in list)
             {
-                Assert.True(previousDay < date);
-                Assert.Equal(2019, date.Year);
+                Assert.True(previousDay < holiday.Date);
+                Assert.Equal(2019, holiday.Date.Year);
             }
         }
     }
