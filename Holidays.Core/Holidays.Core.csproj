@@ -1,20 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net40;net9.0</TargetFrameworks>
     <AssemblyName>Szyb.PolishHolidays</AssemblyName>
     <RootNamespace>Szyb.Holidays.Core</RootNamespace>
     <Authors>Szymon Bełus</Authors>
     <Description>This is a simple library that generates all holidays in Poland for a given year</Description>
-    <PackageReleaseNotes>Since 2025 there is new holiday in Poland: Christmas Eve. Drop .NET Standard 1.0 and target to .Net Standard 2.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Since 2025 there is new holiday in Poland: Christmas Eve. Droping .NET Standard 1.0 and target to .Net Standard 2.0 .NET Framework 4.0 and .NET 9</PackageReleaseNotes>
     <PackageLicenseExpression />
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/szyb/holidays</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/szyb/holidays</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>holidays;poland;calendar</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
