@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Szyb.Holidays.Core
 {
     public static class Holidays
     {
         private static IList<PolishHolidayDefinition> polishHolidays = new List<PolishHolidayDefinition>();
-        
+
         static Holidays()
         {
             polishHolidays.Add(new PolishHolidayDefinition(1, 1, "Nowy Rok"));
@@ -27,9 +28,13 @@ namespace Szyb.Holidays.Core
             var pentecostDay = easterDate.AddDays(49);
             var corpusChristiDay = easterDate.AddDays(60);
             List<PolishHoliday> polishHolidaysResult = new List<PolishHoliday>();
-            foreach(var day in polishHolidays)
+            foreach (var day in polishHolidays)
             {
-                polishHolidaysResult.Add(new PolishHoliday( new DateTime(year, day.Month, day.Day), day.Name));
+                polishHolidaysResult.Add(new PolishHoliday(new DateTime(year, day.Month, day.Day), day.Name));
+            }
+            if (year >= 2025)
+            {
+                polishHolidaysResult.Add(new PolishHoliday(new DateTime(year, 12, 24), "Wigilia Bożego Narodzenia"));
             }
             polishHolidaysResult.Add(new PolishHoliday(easterDate, "Niedziela Wielkanocna"));
             polishHolidaysResult.Add(new PolishHoliday(easterMondayDay, "Poniedziałek Wielkanocny"));
